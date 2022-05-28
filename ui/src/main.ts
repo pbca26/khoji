@@ -21,6 +21,7 @@ Vue.config.productionTip = false;
 
 Vue.component('Header', Header);
 
+//@ts-ignore
 const routes: Array<RouteConfig> = [
   {
     path: '',
