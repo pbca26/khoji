@@ -16,31 +16,17 @@
         <router-link :to="{ path: '/transaction/' + data.value }">{{ data.value.substr(0, 4) }}...{{ data.value.substr(data.value.length - 4, 4) }}</router-link>
       </template>
     </b-table>
+    <router-link v-if="identities !== null" :to="{path: '/identities/all'}" class="see-more-link">See more</router-link>
   </div>
 </template>
-
-<script>
-  import axios from 'axios';
-  import {identities} from './mockData';
-  import {apiURL, isMock} from '../config';
-
-  export default {
-    data() {
-      return {
-        fields: ['name', 'blockheight', 'identityaddress', 'txid'],
-        identities: isMock ? identities : null,
-      }
-    },
-    mounted () {
-      axios
-        .get(`${apiURL}/identities/last`)
-        .then(response => (this.identities = response.data))
-    }
-  }
-</script>
 
 <style scoped>
   .identities-table {
     margin-top: 30px;
   }
 </style>
+
+<script>
+  import IdentitiesTable from './IdentitiesTable';
+  export default IdentitiesTable;
+</script>

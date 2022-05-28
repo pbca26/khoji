@@ -49,26 +49,6 @@
   </div>
 </template>
 
-<script>
-  import axios from 'axios';
-  import {networkInfo} from './mockData';
-  import {apiURL, isMock} from '../config';
-
-  export default {
-    data() {
-      return {
-        //fields: ['height', 'miner', 'timestamp'],
-        networkInfo: isMock ? networkInfo : null,
-      }
-    },
-    mounted () {
-      axios
-        .get(`${apiURL}/network`)
-        .then(response => (this.networkInfo = response.data))
-    }
-  }
-</script>
-
 <style scoped>
   .text-left {
     text-align: left;
@@ -77,3 +57,8 @@
     margin-top: 30px;
   }
 </style>
+
+<script lang="ts">
+  import NetworkInfoTable from './NetworkInfoTable';
+  export default NetworkInfoTable;
+</script>

@@ -16,12 +16,13 @@
 </template>
 
 <script>
-import BlocksTable from './components/BlocksTable.vue'
-import TransactionsTable from './components/TransactionsTable.vue'
-import NetworkInfoTable from './components/NetworkInfoTable.vue'
-import IdentitiesTable from './components/IdentitiesTable.vue'
+import Vue from 'vue';
+import BlocksTable from './components/BlocksTable.vue';
+import TransactionsTable from './components/TransactionsTable.vue';
+import NetworkInfoTable from './components/NetworkInfoTable.vue';
+import IdentitiesTable from './components/IdentitiesTable.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
     BlocksTable,
@@ -29,15 +30,24 @@ export default {
     IdentitiesTable,
     NetworkInfoTable
   }
-}
+});
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  a {
+    text-decoration: none !important;
+  }
+  .see-more-link {
+    position: relative;
+    margin-top: -13px;
+    margin-bottom: 20px;
+    display: block;
+  }
 </style>

@@ -1,6 +1,6 @@
 // ref: https://github.com/pbca26/komodolib-js/blob/interim/src/time.js
 
-const secondsToString = (seconds, skipMultiply, showSeconds) => {
+export const secondsToString = (seconds: number, skipMultiply?: boolean, showSeconds?: boolean): string => {
   const a = new Date(seconds * (skipMultiply ? 1 : 1000));
   const months = [
     'Jan',
@@ -27,14 +27,14 @@ const secondsToString = (seconds, skipMultiply, showSeconds) => {
   return time;
 };
 
-const checkTimestamp = (dateToCheck, currentEpochTime = Date.now() / 1000) => {
+export const checkTimestamp = (dateToCheck: number, currentEpochTime: number = Date.now() / 1000): number => {
   const secondsElapsed = Number(currentEpochTime) - Number(dateToCheck / 1000);
 
   return Math.floor(secondsElapsed);
 };
 
 // src: https://stackoverflow.com/questions/8942895/convert-a-number-of-days-to-days-months-and-years-with-jquery/8943500
-const secondsElapsedToString = (timestamp, srcInSeconds) => { // in seconds
+export const secondsElapsedToString = (timestamp: number, srcInSeconds?: boolean): string => { // in seconds
   let secondsElapsed = srcInSeconds ? timestamp : checkTimestamp(timestamp);
   let str = '';
   // Map lengths of `secondsElapsed` to different time periods
@@ -77,10 +77,4 @@ const secondsElapsedToString = (timestamp, srcInSeconds) => { // in seconds
   }
 
   return str.trim(); // trim space chars
-};
-
-module.exports = {
-  secondsToString,
-  checkTimestamp,
-  secondsElapsedToString,
 };
